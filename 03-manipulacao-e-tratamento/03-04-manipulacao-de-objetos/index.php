@@ -7,8 +7,51 @@ fullStackPHPClassName("03.04 - Manipulação de objetos");
  */
 fullStackPHPClassSession("manipulação", __LINE__);
 
+$arrProfile = [
+    "name" => "Robson",
+    "company" => "UpInside",
+    "mail" => "cursos@upinside.com.br"
+];
 
+$objProfile = (object)$arrProfile;
+//var_dump($arrProfile, $objProfile);
+
+echo "<p>{$arrProfile['name']} trabalha na {$arrProfile['company']}</p>"; //Abre Array
+echo "<p>{$objProfile->name} trabalha na {$objProfile->company}</p>"; //Abre objeto
+
+$ceo = $objProfile;
+unset($ceo->company); //elimina a propriedade do Objeto
+var_dump($ceo);
+
+$company = new StdClass();
+$company->company = "UpInside";
+$company->ceo = $ceo;
+$company->manager = new StdClass();
+$company->manager->name = "Kaue";
+$company->manager->mail = "curso@upinside.com.br";
+
+var_dump($company);
 /**
  * [ análise ] class | objetcs | instances
  */
 fullStackPHPClassSession("análise", __LINE__);
+
+$date = new DateTime();
+
+var_dump([
+    "class" => get_class($date),
+    "methods" => get_class_methods($date),
+    "vars" => get_object_vars($date),
+    "parent" => get_parent_class($date),
+    "subclass" => is_subclass_of($date, "DateTime")
+]);
+
+$expection = new PDOException();
+
+var_dump([
+    "class" => get_class($expection),
+    "methods" => get_class_methods($expection),
+    "vars" => get_object_vars($expection),
+    "parent" => get_parent_class($expection),
+    "subclass" => is_subclass_of($expection, "Exception")
+]);
