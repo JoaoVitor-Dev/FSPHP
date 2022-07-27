@@ -47,7 +47,7 @@ $dirCount = count($dirFiles);
 
 var_dump($dirFiles);
 
-if ($dirCount >= 1){
+/*if ($dirCount >= 1){
     echo "<h2>Clear...</h2>";
     foreach (scandir($dirRemove) as $fileItem){
         $fileItem = __DIR__."/remove/"{$fileItem};
